@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/og-card.png' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
 <title>{{ page.title }} | The Microcap Minute Classroom</title>
 <style>
   :root { --ink:#1a1a1a; --mute:#5b6470; --rule:#e3e6ea; --link:#0b5fff;
@@ -23,6 +32,7 @@
   a { color:var(--link); }
   img { max-width:100%; height:auto; border:1px solid var(--rule); border-radius:6px;
         margin:.7rem 0; }
+  .wrap img { cursor:zoom-in; }
   ul, ol { padding-left:1.2rem; }
   li { margin:.35rem 0; }
   hr { border:0; border-top:1px solid var(--rule); margin:2.5rem 0 1.5rem; }
@@ -76,5 +86,19 @@
     <a href="https://themicrocapinvestor.github.io/smart-investor-tracker/">Smart Investor Tracker</a>
   </footer>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.wrap img').forEach(function (img) {
+    if (img.parentElement && img.parentElement.tagName !== 'A') {
+      var a = document.createElement('a');
+      a.href = img.src;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    }
+  });
+});
+</script>
 </body>
 </html>

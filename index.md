@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+description: "A free course in reading US companies from their own SEC filings, in plain language, with worked examples and screenshots."
 permalink: /
 ---
 
