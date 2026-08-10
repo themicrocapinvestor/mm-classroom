@@ -57,6 +57,15 @@
 
   {{ content }}
 
+  {% if page.audio %}
+  {% assign parts = page.permalink | split: "/" %}
+  <div class="learn"><b>Listen to this chapter.</b> Ritu, our synthetic voice, reads
+  this lesson aloud; she says so herself at the start.<br>
+  <audio controls preload="none" style="width:100%;margin-top:.5rem"
+    src="/mm-classroom/assets/audio/{{ parts[1] }}/{{ parts[2] }}.mp3"></audio>
+  <a href="/mm-classroom/assets/audio/{{ parts[1] }}/{{ parts[2] }}.txt">Read the transcript</a></div>
+  {% endif %}
+
   <footer class="site">
     Nothing here is investment advice or a recommendation to buy or sell any security.
     Errors and omissions may occur; the linked source document is always the authoritative
