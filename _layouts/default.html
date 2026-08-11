@@ -25,6 +25,12 @@
   header.site a.home { font-weight:700; font-size:1.05rem; color:var(--ink); text-decoration:none; }
   header.site a.home span { color:var(--gold); }
   header.site .sub { color:var(--mute); font-size:.9rem; margin-top:.15rem; }
+  header.site .hdr { display:flex; align-items:center; justify-content:space-between;
+                     gap:.75rem; flex-wrap:wrap; }
+  header.site a.subbtn { flex:none; font-size:.8rem; font-weight:600; color:var(--gold);
+                         border:1px solid var(--gold); border-radius:999px;
+                         padding:.18rem .8rem; text-decoration:none; }
+  header.site a.subbtn:hover { background:var(--soft); }
   h1 { font-size:1.85rem; line-height:1.25; margin:0 0 .4rem; letter-spacing:-.01em; }
   h2 { font-size:1.2rem; margin:2.2rem 0 .6rem; }
   h3 { font-size:1.02rem; margin:1.8rem 0 .4rem; }
@@ -61,7 +67,10 @@
 <body>
 <div class="wrap">
   <header class="site">
-    <a class="home" href="{{ '/' | relative_url }}">The Microcap Minute <span>Classroom</span></a>
+    <div class="hdr">
+      <a class="home" href="{{ '/' | relative_url }}">The Microcap Minute <span>Classroom</span></a>
+      <a class="subbtn" href="https://zohosecurepay.in/checkout/n39zd29i-xck89eztx02j4/The-Microcap-Minute-Global" target="_blank" rel="noopener">Subscribe</a>
+    </div>
     <div class="sub">Free lessons on reading US companies, from the filings first. By The Microcap Minute Global.</div>
   </header>
 
