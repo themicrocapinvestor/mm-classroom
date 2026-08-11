@@ -183,6 +183,9 @@
   .learn, .try, .takeaways { border-radius: var(--radius); padding: 1.3rem 1.45rem 1.25rem; margin: 2rem 0; max-width: 68ch; font-size: 1rem; line-height: 1.6; }
   .chapter .wrap-read > .learn, .chapter .wrap-read > .try, .chapter .wrap-read > .takeaways { margin: 2rem 0; }
   .chapter .wrap-read > .audio-card { margin: 2.2rem 0; }
+  .video-card { margin: 2.2rem 0; }
+  .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); background: #0a0a0a; }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .chapter .wrap-read > .pager { margin-top: 2.6rem; }
   .learn > p:first-child, .try > p:first-child, .takeaways > p:first-child {
     font-size: var(--t-micro); font-weight: 800; letter-spacing: .13em; text-transform: uppercase; margin-bottom: .8rem;
@@ -296,6 +299,23 @@
 <main class="chapter">
   <div class="wrap-read">
     {{ content }}
+
+    {% if page.video %}
+    <div class="video-card">
+      <div class="audio-top">
+        <span class="audio-badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.8v10.4c0 .8.9 1.3 1.6.9l8-5.2c.6-.4.6-1.4 0-1.8l-8-5.2c-.7-.4-1.6.1-1.6.9z"/></svg>
+        </span>
+        <div>
+          <p class="audio-title">Watch this chapter</p>
+          <p class="audio-sub">The video edition, on our YouTube channel</p>
+        </div>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ page.video }}" title="Watch this chapter" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    {% endif %}
 
     {% if page.audio %}
     {% assign parts = page.permalink | split: "/" %}
