@@ -151,6 +151,6 @@ permalink: /
 
     </div>
 
-    <p class="meta modules-note">Every module is free. Chapters are short, each ends with a ten-minute exercise, and most will soon have an audio edition read by Ritu, our synthetic voice, who says so herself at the start of every episode.</p>
+    <p class="meta modules-note">Every module is free. Chapters are short, each ends with a ten-minute exercise, and each has an audio edition read by Ritu, a synthetic voice from Sarvam AI, who says so herself at the start of every episode.</p>
   </div>
 </section>
