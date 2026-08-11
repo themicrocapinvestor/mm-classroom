@@ -39,6 +39,9 @@
   img { max-width:100%; height:auto; border:1px solid var(--rule); border-radius:6px;
         margin:.7rem 0; }
   .wrap img { cursor:zoom-in; }
+  .credit { text-align:center; font-size:.83rem; color:var(--mute); margin:-.2rem 0 1.1rem;
+            font-style:normal; border:0; }
+  .credit a { color:var(--mute); text-decoration:underline; }
   ul, ol { padding-left:1.2rem; }
   li { margin:.35rem 0; }
   hr { border:0; border-top:1px solid var(--rule); margin:2.5rem 0 1.5rem; }
@@ -81,15 +84,16 @@
   <div class="learn"><b>Listen to this chapter.</b> Ritu, our synthetic voice, reads
   this lesson aloud; she says so herself at the start.<br>
   <audio controls preload="none" style="width:100%;margin-top:.5rem"
-    src="/mm-classroom/assets/audio/{{ parts[1] }}/{{ parts[2] }}.mp3"></audio>
-  <a href="/mm-classroom/assets/audio/{{ parts[1] }}/{{ parts[2] }}.txt">Read the transcript</a></div>
+    src="/assets/audio/{{ parts[1] }}/{{ parts[2] }}.mp3"></audio>
+  <a href="/assets/audio/{{ parts[1] }}/{{ parts[2] }}.txt">Read the transcript</a></div>
   {% endif %}
 
   <footer class="site">
     Nothing here is investment advice or a recommendation to buy or sell any security.
     Errors and omissions may occur; the linked source document is always the authoritative
     record. StockAnalysis links carry our referral code. Not affiliated with or endorsed by
-    the U.S. Securities and Exchange Commission, Zerodha, StockAnalysis.com, or StockCharts.com.<br>
+    the U.S. Securities and Exchange Commission, Zerodha, StockAnalysis.com, or StockCharts.com.
+    Relative Rotation Graphs and RRG are registered trademarks of RRG Research.<br>
     <a href="https://themicrocapinvestor.github.io/MM-Policies/">Our policies</a> &middot;
     <a href="https://www.themicrocapminute.in">The Microcap Minute</a> &middot;
     <a href="https://themicrocapinvestor.github.io/smart-investor-tracker/">Smart Investor Tracker</a>

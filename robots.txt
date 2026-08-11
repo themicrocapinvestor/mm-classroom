@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://themicrocapinvestor.github.io/mm-classroom/sitemap.xml
+Sitemap: https://school.themicrocapminute.in/sitemap.xml

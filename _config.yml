@@ -1,6 +1,6 @@
 name: mm-classroom
 title: The Microcap Minute Classroom
 description: Free modules on understanding US-listed companies, from filings first. Written for the curious, no prior knowledge assumed.
-url: "https://themicrocapinvestor.github.io"
-baseurl: "/mm-classroom"
+url: "https://school.themicrocapminute.in"
+baseurl: ""
 markdown: kramdown
