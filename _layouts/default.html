@@ -13,95 +13,344 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
 <title>{{ page.title }} | The Microcap Minute Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,620;9..144,700&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#1a1a1a; --mute:#5b6470; --rule:#e3e6ea; --link:#0b5fff;
-          --gold:#9a7b1c; --soft:#faf8f2; --bg:#fff; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink);
-         font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-         -webkit-font-smoothing:antialiased; }
-  .wrap { max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
-  header.site { border-bottom:1px solid var(--rule); padding-bottom:1rem; margin-bottom:2.25rem; }
-  header.site a.home { font-weight:700; font-size:1.05rem; color:var(--ink); text-decoration:none; }
-  header.site a.home span { color:var(--gold); }
-  header.site .sub { color:var(--mute); font-size:.9rem; margin-top:.15rem; }
-  header.site .hdr { display:flex; align-items:center; justify-content:space-between;
-                     gap:.75rem; flex-wrap:wrap; }
-  header.site a.subbtn { flex:none; font-size:.8rem; font-weight:600; color:var(--gold);
-                         border:1px solid var(--gold); border-radius:999px;
-                         padding:.18rem .8rem; text-decoration:none; }
-  header.site a.subbtn:hover { background:var(--soft); }
-  h1 { font-size:1.85rem; line-height:1.25; margin:0 0 .4rem; letter-spacing:-.01em; }
-  h2 { font-size:1.2rem; margin:2.2rem 0 .6rem; }
-  h3 { font-size:1.02rem; margin:1.8rem 0 .4rem; }
-  p, li { color:var(--ink); }
-  a { color:var(--link); }
-  img { max-width:100%; height:auto; border:1px solid var(--rule); border-radius:6px;
-        margin:.7rem 0; }
-  .wrap img { cursor:zoom-in; }
-  .credit { text-align:center; font-size:.83rem; color:var(--mute); margin:-.2rem 0 1.1rem;
-            font-style:normal; border:0; }
-  .credit a { color:var(--mute); text-decoration:underline; }
-  ul, ol { padding-left:1.2rem; }
-  li { margin:.35rem 0; }
-  hr { border:0; border-top:1px solid var(--rule); margin:2.5rem 0 1.5rem; }
-  blockquote { margin:1.2rem 0; padding:.8rem 1.1rem; background:var(--soft);
-               border-left:3px solid var(--gold); border-radius:0 6px 6px 0; }
-  blockquote p { margin:.2rem 0; }
-  .learn, .takeaways, .try { background:var(--soft); border:1px solid var(--rule);
-    border-radius:8px; padding:1rem 1.2rem; margin:1.4rem 0; }
-  .learn h2, .takeaways h2, .try h2 { margin-top:0; font-size:1.05rem; }
-  .crumb { color:var(--mute); font-size:.85rem; margin-bottom:1.2rem; }
-  .crumb a { color:var(--mute); text-decoration:none; border-bottom:1px solid var(--rule); }
-  .pager { display:flex; justify-content:space-between; margin-top:2.5rem;
-           border-top:1px solid var(--rule); padding-top:1.2rem; font-size:.95rem; }
-  .modcard { display:block; border:1px solid var(--rule); border-radius:10px;
-             padding:1.1rem 1.3rem; margin:0 0 1rem; text-decoration:none; color:var(--ink); }
-  .modcard:hover { border-color:var(--gold); }
-  .modcard .n { color:var(--gold); font-weight:700; font-size:.85rem;
-                text-transform:uppercase; letter-spacing:.08em; }
-  .modcard .t { display:block; font-weight:700; font-size:1.15rem; margin:.2rem 0 .3rem; }
-  .modcard .d { display:block; color:var(--mute); font-size:.92rem; }
-  footer.site { border-top:1px solid var(--rule); margin-top:3rem; padding-top:1.25rem;
-                color:var(--mute); font-size:.85rem; line-height:1.6; }
-  footer.site a { text-decoration:none; }
+  /* The Microcap Minute Classroom design system: paper, ink, one gold.
+     Fraunces for display, system sans for body. */
+  :root {
+    --paper: #fdfcf9;
+    --card: #ffffff;
+    --ink: #1d1a14;
+    --ink-2: #4a4436;
+    --mute: #756e5e;
+    --gold: #9a7b1c;
+    --gold-deep: #7c6213;
+    --gold-wash: #f8f1de;
+    --gold-line: #e4d7ad;
+    --rule: #e8e3d3;
+    --rule-soft: #f0ecdf;
+    --shadow: 0 1px 2px rgba(29, 26, 20, .05), 0 8px 24px -18px rgba(29, 26, 20, .25);
+    --serif: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --t-micro: .72rem;
+    --t-meta: .8rem;
+    --t-small: .88rem;
+    --t-body: 1rem;
+    --t-lede: 1.15rem;
+    --t-h3: 1.32rem;
+    --t-h2: 1.72rem;
+    --t-hero: clamp(2.35rem, 4.6vw, 3.4rem);
+    --gap: 1.25rem;
+    --sect: clamp(2.75rem, 6vw, 4.5rem);
+    --radius: 5px;
+  }
+  body.class {
+    --paper: #fbf7ed;
+    --card: #fffdf7;
+    --rule: #eae2cc;
+    --rule-soft: #f2ecda;
+    --gold-wash: #f7efd9;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: var(--t-body); line-height: 1.6;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--gold-deep); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--gold); }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 560; line-height: 1.18; margin: 0; letter-spacing: -.01em; }
+  p { margin: 0; }
+  ul, ol { margin: 0; }
+  ::selection { background: var(--gold-wash); }
+  .stat b, .module-no { font-variant-numeric: tabular-nums lining-nums; }
+
+  .wrap { max-width: 74rem; margin: 0 auto; padding-left: clamp(1.1rem, 4vw, 2.5rem); padding-right: clamp(1.1rem, 4vw, 2.5rem); }
+  .wrap-read { max-width: 46rem; margin: 0 auto; padding-left: clamp(1.1rem, 4vw, 2rem); padding-right: clamp(1.1rem, 4vw, 2rem); }
+  .sect { padding-top: var(--sect); padding-bottom: var(--sect); }
+  .sect + .sect { padding-top: 0; }
+
+  .kicker {
+    font-size: var(--t-micro); font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold-deep);
+    display: flex; align-items: center; gap: .55rem;
+  }
+  .kicker::before { content: ""; width: 1.6rem; height: 1px; background: var(--gold); }
+  .lede { font-size: var(--t-lede); line-height: 1.65; color: var(--ink-2); max-width: 40rem; }
+  .meta { font-size: var(--t-meta); color: var(--mute); }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font: 600 var(--t-small)/1 var(--sans); letter-spacing: .02em;
+    padding: .78rem 1.3rem; border-radius: var(--radius);
+    border: 1px solid var(--ink); background: var(--ink); color: var(--paper);
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: background .15s ease, border-color .15s ease, transform .15s ease;
+  }
+  .btn:hover { background: var(--gold-deep); border-color: var(--gold-deep); color: #fff; }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
+  .btn.ghost:hover { border-color: var(--gold); color: var(--gold-deep); background: var(--card); }
+
+  /* site header */
+  .site-head { border-bottom: 1px solid var(--rule); background: var(--paper); }
+  .site-head .wrap { display: flex; align-items: center; gap: 1.25rem; min-height: 4.25rem; padding-top: .55rem; padding-bottom: .55rem; }
+  .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--ink); flex: none; }
+  .brand svg { flex: none; }
+  .brand-name { font-family: var(--serif); font-weight: 640; font-size: 1.12rem; letter-spacing: -.01em; line-height: 1.1; }
+  .prod-tag {
+    font-size: .64rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--gold-deep); border: 1px solid var(--gold-line); background: var(--gold-wash);
+    padding: .28rem .55rem .24rem; border-radius: 3px; white-space: nowrap;
+  }
+  .site-nav { margin-left: auto; display: flex; align-items: center; gap: 1.35rem; overflow-x: auto; scrollbar-width: none; }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a {
+    font-size: var(--t-small); font-weight: 550; color: var(--ink-2); text-decoration: none;
+    white-space: nowrap; padding: .35rem 0; border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover { color: var(--ink); }
+  .site-nav .btn { padding: .55rem .95rem; border-bottom: 1px solid var(--rule); }
+  .site-nav .btn.ghost { color: var(--ink); }
+  .site-nav .btn.ghost:hover { color: var(--gold-deep); }
+  .site-nav a.subbtn {
+    flex: none; font-size: var(--t-small); font-weight: 650; color: var(--gold-deep);
+    border: 1px solid var(--gold); border-radius: 999px; padding: .42rem 1rem;
+    text-decoration: none; white-space: nowrap;
+  }
+  .site-nav a.subbtn:hover { background: var(--gold-wash); color: var(--gold-deep); }
+
+  /* hero (home) */
+  .hero { border-bottom: 1px solid var(--rule); background: linear-gradient(180deg, var(--gold-wash) 0%, var(--paper) 82%); }
+  .hero .wrap { padding-top: clamp(2.6rem, 6vw, 4.6rem); padding-bottom: clamp(2.4rem, 5vw, 3.8rem); }
+  .hero h1 { font-size: var(--t-hero); font-weight: 600; max-width: 21ch; margin: 0 0 1.05rem; }
+  .hero .lede { max-width: 44rem; }
+  .hero-note { font-size: var(--t-meta); color: var(--mute); margin-top: 1.7rem; }
+
+  /* stat strip */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--rule); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); }
+  .stat { padding: 1.15rem 1.35rem 1.05rem; border-left: 1px solid var(--rule-soft); }
+  .stat:first-child { border-left: 0; }
+  .stat b { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.65rem; line-height: 1.1; letter-spacing: -.01em; }
+  .stat span { display: block; margin-top: .3rem; font-size: var(--t-micro); font-weight: 650; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
+
+  /* module grid (home) */
+  .modules { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+  .module {
+    position: relative; display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius);
+    padding: 1.45rem 1.5rem 1.3rem; text-decoration: none; color: var(--ink);
+    box-shadow: var(--shadow); transition: border-color .16s ease, transform .16s ease;
+  }
+  .module:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .module-no { font-family: var(--serif); font-size: 2rem; font-weight: 560; color: var(--gold); line-height: 1; }
+  .module h3 { font-size: 1.18rem; font-weight: 620; margin-bottom: .4rem; padding-right: 1.2rem; }
+  .module p { font-size: var(--t-small); color: var(--ink-2); line-height: 1.6; }
+  .module-meta { display: flex; align-items: center; gap: .9rem; margin-top: .85rem; font-size: var(--t-micro); font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
+  .module-meta .audio-dot { display: inline-flex; align-items: center; gap: .35rem; color: var(--gold-deep); }
+  .start-here {
+    position: absolute; top: -.68rem; right: 1.1rem; font-size: .62rem; font-weight: 800;
+    letter-spacing: .13em; text-transform: uppercase; color: #fff; background: var(--gold-deep);
+    padding: .3rem .55rem .26rem; border-radius: 3px;
+  }
+  .modules-note { margin-top: 1.6rem; max-width: 44rem; line-height: 1.65; }
+
+  /* chapter and module pages */
+  main.chapter { font-size: 1.02rem; line-height: 1.78; }
+  .chapter .wrap-read > * + * { margin-top: 1.25rem; }
+  .crumb { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; font-size: var(--t-meta); line-height: 1.5; color: var(--mute); padding-top: 1.6rem; }
+  .crumb a { color: var(--mute); text-decoration: none; }
+  .crumb a:hover { color: var(--gold-deep); }
+  .chapter h1 { font-size: clamp(1.9rem, 4.4vw, 2.6rem); font-weight: 600; margin: .8rem 0 1rem; max-width: 19ch; }
+  .chapter .wrap-read > h2, .chapter h2 { font-size: var(--t-h3); font-weight: 620; }
+  .chapter .wrap-read > h2 { margin-top: 2.4rem; }
+  .chapter ul, .chapter ol { padding-left: 1.15rem; }
+  .chapter li { margin-top: .5rem; }
+  .chapter li::marker { color: var(--gold); }
+  .chapter img { border: 1px solid var(--rule); border-radius: var(--radius); background: #fff; }
+  .wrap-read img { cursor: zoom-in; }
+  .chapter .wrap-read > .credit { margin-top: .6rem; font-size: var(--t-meta); line-height: 1.5; color: var(--mute); }
+  .credit a { color: var(--mute); text-decoration: underline; }
+  .chapter table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--rule); font-size: .92rem; line-height: 1.5; }
+  .chapter th { font-size: var(--t-micro); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); text-align: left; padding: .7rem .9rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  .chapter td { padding: .65rem .9rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; font-variant-numeric: tabular-nums; }
+  .chapter tr:last-child td { border-bottom: 0; }
+
+  /* callout boxes (chapter .learn, .try, .takeaways blocks) */
+  .learn, .try, .takeaways { border-radius: var(--radius); padding: 1.3rem 1.45rem 1.25rem; margin: 2rem 0; max-width: 68ch; font-size: 1rem; line-height: 1.6; }
+  .chapter .wrap-read > .learn, .chapter .wrap-read > .try, .chapter .wrap-read > .takeaways { margin: 2rem 0; }
+  .chapter .wrap-read > .audio-card { margin: 2.2rem 0; }
+  .chapter .wrap-read > .pager { margin-top: 2.6rem; }
+  .learn > p:first-child, .try > p:first-child, .takeaways > p:first-child {
+    font-size: var(--t-micro); font-weight: 800; letter-spacing: .13em; text-transform: uppercase; margin-bottom: .8rem;
+  }
+  .learn ul, .try ul, .takeaways ul { padding-left: 1.1rem; }
+  .learn li, .try li, .takeaways li { margin-top: .45rem; font-size: .95rem; line-height: 1.6; }
+  .learn { background: var(--gold-wash); border: 1px solid var(--gold-line); }
+  .learn > p:first-child { color: var(--gold-deep); }
+  .learn li::marker { color: var(--gold); }
+  .try { background: var(--card); border: 1px solid var(--ink); }
+  .try > p:first-child { color: var(--ink); }
+  .try p { font-size: .95rem; line-height: 1.65; color: var(--ink-2); }
+  .try > p:first-child { font-size: var(--t-micro); color: var(--ink); line-height: 1.4; }
+  .takeaways { background: var(--ink); color: var(--paper); }
+  .takeaways > p:first-child { color: #d8b93c; }
+  .takeaways li { color: #e9e4d6; }
+  .takeaways li::marker { color: #d8b93c; }
+
+  /* audio card */
+  .audio-card {
+    display: flex; flex-direction: column; gap: .9rem;
+    background: var(--card); border: 1px solid var(--gold-line); border-radius: var(--radius);
+    padding: 1.3rem 1.45rem 1.2rem; margin: 2.2rem 0; max-width: 68ch; box-shadow: var(--shadow);
+    font-size: 1rem; line-height: 1.6;
+  }
+  .audio-top { display: flex; align-items: center; gap: .85rem; }
+  .audio-badge {
+    flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%;
+    background: var(--gold-wash); border: 1px solid var(--gold-line);
+    display: flex; align-items: center; justify-content: center; color: var(--gold-deep);
+  }
+  .audio-title { font-family: var(--serif); font-weight: 620; font-size: 1.12rem; line-height: 1.25; }
+  .audio-sub { font-size: var(--t-meta); color: var(--mute); margin-top: .15rem; }
+  .audio-card audio { width: 100%; height: 2.6rem; display: block; }
+
+  /* pager */
+  .pager { display: flex; gap: var(--gap); margin-top: 2.6rem; font-size: 0; line-height: 1.35; }
+  .pager span { display: contents; }
+  .pager a {
+    flex: 1; display: flex; flex-direction: column; gap: .35rem; padding: 1.1rem 1.25rem;
+    border: 1px solid var(--rule); border-radius: var(--radius); background: var(--card);
+    text-decoration: none; font-family: var(--serif); font-weight: 600; font-size: 1.02rem;
+    color: var(--ink); transition: border-color .16s ease;
+  }
+  .pager a:hover { border-color: var(--gold); color: var(--ink); }
+  .pager > a:last-of-type, .pager > span:last-child > a { text-align: right; }
+
+  /* footer */
+  .site-foot { border-top: 1px solid var(--rule); margin-top: var(--sect); background: #fffdf6; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-top: 2.4rem; padding-bottom: 2rem; }
+  .foot-brand .brand-name { font-size: 1.05rem; }
+  .foot-brand p { font-size: var(--t-meta); color: var(--mute); margin-top: .5rem; max-width: 22rem; line-height: 1.6; }
+  .foot-col h4 { font-family: var(--sans); font-size: var(--t-micro); font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--mute); margin-bottom: .8rem; }
+  .foot-col ul { list-style: none; padding: 0; }
+  .foot-col li { margin-top: .5rem; }
+  .foot-col a { font-size: var(--t-small); color: var(--ink-2); text-decoration: none; }
+  .foot-col a:hover { color: var(--gold-deep); }
+  .legal { border-top: 1px solid var(--rule-soft); padding-top: 1.3rem; padding-bottom: 2.2rem; }
+  .legal p { font-size: var(--t-micro); color: var(--mute); line-height: 1.65; max-width: 62rem; }
+  .legal p + p { margin-top: .5rem; }
+
+  @media (max-width: 960px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(3) { border-left: 0; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--rule-soft); }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .foot-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 720px) {
+    .modules { grid-template-columns: 1fr; }
+    .site-head .wrap { flex-wrap: wrap; gap: .5rem .9rem; }
+    .brand { gap: .5rem; }
+    .brand-name { font-size: 1.05rem; }
+    .prod-tag { font-size: .58rem; padding: .24rem .42rem .2rem; letter-spacing: .11em; }
+    .site-nav { width: 100%; margin-left: 0; gap: 1rem; }
+    .site-nav .btn { display: none; }
+    .pager { flex-direction: column; }
+    .chapter table { display: block; overflow-x: auto; }
+  }
+  @media (max-width: 460px) {
+    .stat { padding: .95rem 1rem .85rem; }
+    .stat b { font-size: 1.35rem; }
+    .foot-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
 </style>
 </head>
-<body>
-<div class="wrap">
-  <header class="site">
-    <div class="hdr">
-      <a class="home" href="{{ '/' | relative_url }}">The Microcap Minute <span>Classroom</span></a>
+<body class="class">
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <svg width="15" height="15" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.2" y="2.2" width="9.6" height="9.6" transform="rotate(45 7 7)" fill="#9a7b1c"/></svg>
+      <span class="brand-name">The Microcap Minute</span>
+      <span class="prod-tag">Classroom</span>
+    </a>
+    <nav class="site-nav" aria-label="Product">
+      <a href="{{ '/#modules' | relative_url }}">Modules</a>
+      <a href="{{ '/m01/c01/' | relative_url }}">Sample chapter</a>
+      <a href="https://www.themicrocapminute.in">The newsletter</a>
+      <a class="btn ghost" href="https://themicrocapinvestor.github.io/smart-investor-tracker/">Smart Investor Tracker</a>
       <a class="subbtn" href="https://zohosecurepay.in/checkout/n39zd29i-xck89eztx02j4/The-Microcap-Minute-Global" target="_blank" rel="noopener">Subscribe</a>
-    </div>
-    <div class="sub">Free lessons on reading US companies, from the filings first. By The Microcap Minute Global.</div>
-  </header>
+    </nav>
+  </div>
+</header>
 
+{% if page.permalink == "/" %}
+<main>
   {{ content }}
+</main>
+{% else %}
+<main class="chapter">
+  <div class="wrap-read">
+    {{ content }}
 
-  {% if page.audio %}
-  {% assign parts = page.permalink | split: "/" %}
-  <div class="learn"><b>Listen to this chapter.</b> Ritu, our synthetic voice, reads
-  this lesson aloud; she says so herself at the start.<br>
-  <audio controls preload="none" style="width:100%;margin-top:.5rem"
-    src="/assets/audio/{{ parts[1] }}/{{ parts[2] }}.mp3"></audio>
-  <a href="/assets/audio/{{ parts[1] }}/{{ parts[2] }}.txt">Read the transcript</a></div>
-  {% endif %}
+    {% if page.audio %}
+    {% assign parts = page.permalink | split: "/" %}
+    <div class="audio-card">
+      <div class="audio-top">
+        <span class="audio-badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2 6v4h3l4 3.5v-11L5 6H2z"/><path d="M11 5a4.2 4.2 0 0 1 0 6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12.8 3.4a6.6 6.6 0 0 1 0 9.2" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        </span>
+        <div>
+          <p class="audio-title">Listen to this chapter</p>
+          <p class="audio-sub">Read by Ritu, our synthetic voice</p>
+        </div>
+      </div>
+      <audio controls preload="none" src="/assets/audio/{{ parts[1] }}/{{ parts[2] }}.mp3"></audio>
+      <p class="audio-sub"><a href="/assets/audio/{{ parts[1] }}/{{ parts[2] }}.txt">Read the transcript</a></p>
+    </div>
+    {% endif %}
+  </div>
+</main>
+{% endif %}
 
-  <footer class="site">
-    Nothing here is investment advice or a recommendation to buy or sell any security.
-    Errors and omissions may occur; the linked source document is always the authoritative
-    record. StockAnalysis links carry our referral code. Not affiliated with or endorsed by
-    the U.S. Securities and Exchange Commission, Zerodha, StockAnalysis.com, or StockCharts.com.
-    Relative Rotation Graphs and RRG are registered trademarks of RRG Research.<br>
-    <a href="https://themicrocapinvestor.github.io/MM-Policies/">Our policies</a> &middot;
-    <a href="https://www.themicrocapminute.in">The Microcap Minute</a> &middot;
-    <a href="https://themicrocapinvestor.github.io/smart-investor-tracker/">Smart Investor Tracker</a>
-  </footer>
-</div>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-name">The Microcap Minute</span>
+        <p>Serious, independent, filings-first research for ordinary investors. The Classroom is the free course; the Tracker is the daily tool.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Classroom</h4>
+        <ul>
+          <li><a href="{{ '/#modules' | relative_url }}">All modules</a></li>
+          <li><a href="{{ '/m01/c01/' | relative_url }}">Sample chapter</a></li>
+          <li><a href="https://themicrocapinvestor.github.io/MM-Policies/">Policies</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>The Microcap Minute</h4>
+        <ul>
+          <li><a href="https://www.themicrocapminute.in">The newsletter</a></li>
+          <li><a href="https://themicrocapinvestor.github.io/smart-investor-tracker/">Smart Investor Tracker</a></li>
+          <li><a href="https://themicrocapinvestor.github.io/MM-Policies/">Policies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>Nothing here is investment advice or a recommendation to buy or sell any security. Errors and omissions may occur; the linked source document is always the authoritative record. StockAnalysis links carry our referral code. Not affiliated with or endorsed by the U.S. Securities and Exchange Commission, Zerodha, StockAnalysis.com, or StockCharts.com. Relative Rotation Graphs and RRG are registered trademarks of RRG Research.</p>
+      <p>&copy; 2026 The Microcap Minute Global.</p>
+    </div>
+  </div>
+</footer>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.wrap img').forEach(function (img) {
+  document.querySelectorAll('.wrap-read img').forEach(function (img) {
     if (img.parentElement && img.parentElement.tagName !== 'A') {
       var a = document.createElement('a');
       a.href = img.src;
